@@ -1,0 +1,17 @@
+body {
+  width: 100%;
+  padding: 15px;
+}
+table {
+  width: 100%;
+}
+.deleteButton {
+  margin-top: 15px;
+}
+button {
+  outline: none;
+}
+.mat-form-field {
+  width: 100%;
+  font-size: 14px;
+}

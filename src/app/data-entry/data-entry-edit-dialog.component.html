@@ -1,0 +1,31 @@
+<h1 mat-dialog-title *ngIf="!isEditing">Add</h1>
+<h1 mat-dialog-title *ngIf="isEditing">Edit</h1>
+<div mat-dialog-content>
+    <form class="form" [formGroup]="form">
+        <p>Activity:</p>
+        <mat-form-field>
+            <input matInput formControlName="activity" [(ngModel)]="data.activity">
+            <mat-error
+                *ngIf="(form.controls['activity'].hasError('minlength') || form.controls['activity'].hasError('maxlength')) && !form.controls['activity'].hasError('required')">
+                Length should between <strong>2</strong> and <strong>25</strong>
+            </mat-error>
+            <mat-error *ngIf="form.controls['activity'].hasError('required')">
+                Activity is <strong>required</strong>
+            </mat-error>
+        </mat-form-field>
+        <p>Duration(hours):</p>
+        <mat-form-field>
+            <input matInput formControlName="duration" [(ngModel)]="data.duration">
+            <mat-error *ngIf="form.controls['duration'].hasError('pattern')">
+                Duration can only be positive number (1, 1.5, etc.)
+            </mat-error>
+            <mat-error *ngIf="form.controls['duration'].hasError('required')">
+                Duration is <strong>required</strong>
+            </mat-error>
+        </mat-form-field>
+    </form>
+</div>
+<div mat-dialog-actions>
+    <button mat-button style="outline: none;" (click)="onNoClick()">No Thanks</button>
+    <button mat-button style="outline: none;" (click)="submit()" cdkFocusInitial>Ok</button>
+</div>

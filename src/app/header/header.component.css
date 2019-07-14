@@ -1,0 +1,9 @@
+.spacer {
+  flex: 1 1 auto;
+}
+button {
+  outline: none;
+}
+.active {
+  background: #1b2c91
+}
